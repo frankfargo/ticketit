@@ -10,16 +10,20 @@
     data: { confirm: "Are you sure you want to delete this project?" },
     class: "delete" %></li>
   </ul>
+  </header>
 
-  <h2>Tickets</h2>
+  <header>
+    <h2>Tickets</h2>
 
-  <ul class="actions">
-    <li><%= link_to "New Ticket", new_project_ticket_path(@project),
-      class: "new" %></li>
+    <div id="content">
+    <ul class="actions">
+     <li><%= link_to "New Ticket", new_project_ticket_path(@project),
+       class: "new" %></li>
     </ul>
-</header>
+  </header>
 
-<p><%= @project.description %></p>
+
+  <p><%= @project.description %></p>
 
 <ul id="tickets">
   <% @project.tickets.each do |ticket| %>
