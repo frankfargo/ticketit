@@ -25,6 +25,7 @@ gem 'font-awesome-rails', '~> 4.3'
 gem 'simple_form', '~> 3.1.0'
 gem 'devise', '~> 3.4.1'
 gem 'pundit', '~> 0.3.0'
+gem 'carrierwave', '~> 0.10.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
