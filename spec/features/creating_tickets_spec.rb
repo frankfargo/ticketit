@@ -39,30 +39,36 @@ RSpec.feature "Users can create new tickets" do
     expect(page).to have_content "Ticket has not been created."
     expect(page).to have_content "Description is too short"
   end
-  
-  scenario "with an attachment" do
-    fill_in "Name", with: "Add documentation for blink tag"
-    fill_in "Description", with: "The blink tag has a speed attribute"
-    attach_file "File", "spec/fixtures/speed.txt"
+
+  scenario "persisting file uploads across form displays" do
+    attach_file "File #1", "spec/fixtures/speed.txt"
     click_button "Create Ticket"
 
-    expect(page).to have_content "Ticket has been created."
+    fill_in "Name", with: "Add documentation for blink tag"
+    fill_in "Description", with: "The blink tag has a speed attribute"
+    click_button "Create Ticket"
 
-    within("#ticket .attachment") do
+    within("#ticket .attachments") do
       expect(page).to have_content "speed.txt"
     end
   end
 
-  scenario "persisting file uploads across form displays" do
-    attach_file "File", "spec/fixtures/speed.txt"
-    click_button "Create Ticket"
-
+  scenario "with multiple attachments" do
     fill_in "Name", with: "Add documentation for blink tag"
     fill_in "Description", with: "The blink tag has a speed attribute"
+
+    attach_file "File #1", Rails.root.join("spec/fixtures/speed.txt")
+    attach_file "File #2", Rails.root.join("spec/fixtures/spin.txt")
+    attach_file "File #3", Rails.root.join("spec/fixtures/gradient.txt")
+
     click_button "Create Ticket"
 
-    within("#ticket .attachment") do
+    expect(page).to have_content "Ticket has been created."
+
+    within("#ticket .attachments") do
       expect(page).to have_content "speed.txt"
+      expect(page).to have_content "spin.txt"
+      expect(page).to have_content "gradient.txt"
     end
   end
 end
