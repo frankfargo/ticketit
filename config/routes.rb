@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show, :edit, :update] do
     resources :tickets
   end
+
+  resources :attachments, only: [:show]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
