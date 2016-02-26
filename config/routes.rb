@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get 'users/index'
+    get 'users/index'
+
+    resources :states, only: [:index, :new, :create]
   end
 
   namespace :admin do
