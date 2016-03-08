@@ -29,7 +29,7 @@ gem 'database_cleaner', '~> 1.4'
 gem 'searcher', github: "radar/searcher"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'fog', '~> 1.29.0'
+gem 'fog', '~> 1.36.0'
 gem 'rails_12factor', group: :production
 gem 'puma', group: :production
 
