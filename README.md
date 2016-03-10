@@ -1,2 +1,2 @@
 # ticketit
-rails4_action_app
+rails4 in action app
