@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'fog', '~> 1.36.0'
 gem 'rails_12factor', group: :production
 gem 'puma', group: :production
+gem 'active_model_serializers', '~> 0.9.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
