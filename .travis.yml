@@ -2,5 +2,12 @@ language: ruby
 rvm: 2.2.1
 script: bundle exec rspec
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: trTy9bVrwvo2BKKAYyn/NuXvvT7atNF3R2cWvECkvdDKGNLHN8wicuXWmMhIJXA7EBh83oYMJKyKSZ4PdcAW0S5ZJb+qWP2TKStOzMAgJ7/XZXL8WTNTc+ZncWw0ilMXJlCu1eq5plNGhGQifr02CbuRaM8recCxar8/SC5/Ti+3HSw0JgAr6x8e72UAckiO7Oj+GkH0kQbrHFcxM9G1Tg1dGIKss3tnajHYaDtS6pfcVYIJZKGXj0YYQLVdjVSjSe0/xttm2MPn1poPLygC5oxT1doK9RKdxqd9y7rb3Ctmm3VEnA+dr1z0np+hlK2XZqk12vWu9R6Gpv2L1aW97enf4jZw49y6fIii7x/XFBS5KZHEaDl8BnCyl4VAM6cksvy197P2QvK/VvL8+g6+G+31dYlYJdzDzgRHPb26H9f2grlop6lKbZRf1/DXD9C5w1jJLPM0TupunGNPN5Gy7Zd+PmWs5BpuTYO8DFUGNvl2Axym+UEsvl0l9yK8pWHaQV063oHtkZqMU7u27SJ7xJ+rOzRKwQ23yZUL6xGjWnA7ex1fXi9hgTTNdmRDASKxx0VLXshEkpQ/kNqp0piYGk/dy/+06UdmH9Cvh8nGcxGlIieMNHiPAxmTtqvRKmfQ5y9LPSKBYVEEqqlqkLXBDwLKBpYvUOIFhSd7bdBS+a0=
+  app: warm-brook-24655
+  on:
+    repo: frankfargo/ticketit
